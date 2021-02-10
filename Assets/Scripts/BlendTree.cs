@@ -14,13 +14,15 @@ public class BlendTree : MonoBehaviour
 	{
 		if (Input.GetAxisRaw("Vertical") > 0f) //Walk
 		{
-
+			speed = Mathf.Lerp(speed, 1, Time.deltaTime * 2);
 		}
 		else //Idle
 		{
-
+			speed = Mathf.Lerp(speed, 0, Time.deltaTime * 6);
 		}
 
 		transform.position += new Vector3(Time.deltaTime * 0.32f * speed, 0f);
+
+		puppy2Animator.SetFloat("speed", speed);
 	}
 }
